@@ -4,11 +4,7 @@
 
 ## Project Description
 
-- background
-- aim of the project
-- what does the code in this repo do?
-- main methods
-- links to any outputs, blogs. 
+A descriptive analysis of trends in mortality using data from the Office for National Statistics. The code can be used to recreate the analysis described in [COVID-19 chart series](https://www.health.org.uk/news-and-comment/charts-and-infographics/deaths-from-any-cause-in-care-homes-have-increased-by-99-per-cent).
 
 ## Data source
 
@@ -17,13 +13,10 @@ This project uses publically available data that can be downloaded from the [ONS
 
 ## How does it work?
 
-What you need to do to reproduce the analysis or re-use the code on your local machine.  
+The code provided downloads the data you need.
 
 ### Requirements
 
-Software or packages that needs to be installed and and how to install them.
-
-For example:
 These scripts were written under R version 3.6.3 (2020-02-29) -- "Holding the windsock" and RStudio Version 1.2.5033. 
 The following R packages (available on CRAN) are needed: 
 * [**tidyverse**](https://www.tidyverse.org/) (1.3.0)
@@ -34,7 +27,10 @@ Functions from internal package, theme_THF() and scale_XXX_THF() can be removed 
 
 ### Getting started
 
-Describe the way in which the code can be used. 
+The 'src' folder contains
+
+* 0_download_data.R - Download weekly mortality data since 2010
+* 1_COVID_occurence_of_death.R - Clean and plot data on place of death
 
 
 ## Authors
@@ -48,5 +44,5 @@ This project is licensed under the [MIT License](https://github.com/HFAnalyticsL
 
 ## Acknowledgments
 
-* This builds on work by Zoe Turner - [Github](https://github.com/Lextuga007) [Twitter](https://twitter.com/Letxuga007)
+This builds on work by Zoe Turner - [Github](https://github.com/Lextuga007) [Twitter](https://twitter.com/Letxuga007). 
 
