@@ -24,7 +24,7 @@ What you need to do to reproduce the analysis or re-use the code on your local m
 Software or packages that needs to be installed and and how to install them.
 
 For example:
-These scripts were written in R version (to be added) and RStudio Version 1.1.383. 
+These scripts were written under R version 3.6.3 (2020-02-29) -- "Holding the windsock" and RStudio Version 1.2.5033. 
 The following R packages (available on CRAN) are needed: 
 * [**tidyverse**](https://www.tidyverse.org/) (1.3.0)
 * [**here**](https://cran.r-project.org/web/packages/here/index.html) (0.1)
@@ -36,19 +36,17 @@ Functions from internal package, theme_THF() and scale_XXX_THF() can be removed 
 
 Describe the way in which the code can be used. 
 
-## Useful references
-
 
 ## Authors
 
-* contributor name - [Twitter] - [GitHub]
+* **Emma Vestesson** - [@gummifot](https://twitter.com/gummifot) - [emmavestesson](https://github.com/emmavestesson)
+
 
 ## License
 
-This project is licensed under the [MIT License](link to license file).
+This project is licensed under the [MIT License](https://github.com/HFAnalyticsLab/COVID19_ONS_mortality/blob/master/LICENSE).
 
 ## Acknowledgments
 
-* Credit anyone whose code was used
-* Inspiration
-* etc
+* This builds on work by Zoe Turner - [Github](https://github.com/Lextuga007) [Twitter](https://twitter.com/Letxuga007)
+
