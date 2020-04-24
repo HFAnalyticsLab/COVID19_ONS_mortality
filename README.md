@@ -41,7 +41,7 @@ The 'src' folder contains
 
 ## Authors
 
-* **Emma Vestesson** - [Health Foundation profile] [@gummifot](https://twitter.com/gummifot) - [emmavestesson](https://github.com/emmavestesson)
+* **Emma Vestesson** - [Health Foundation profile](https://www.health.org.uk/about-the-health-foundation/our-people/improvement-analytics-unit-iau/emma-vestesson) [@gummifot](https://twitter.com/gummifot) - [emmavestesson](https://github.com/emmavestesson)
 * **Nadya Mihaylova** [Health Foundation profile](https://www.health.org.uk/about-the-health-foundation/our-people/healthy-lives-team/nadya-mihaylova) 
 
 
