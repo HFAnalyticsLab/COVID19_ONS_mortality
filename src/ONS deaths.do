@@ -1,13 +1,14 @@
 ***************Deaths registered weekly in England and Wales********************
 
 //Data is downloaded from: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales
-//All spreadsheets are renamed to "publishedweek****" where **** represents the year 
+// The data can be downloaded using the R code provided here https://github.com/HFAnalyticsLab/COVID19_ONS_mortality/blob/master/src/0_download_data.R
+//All spreadsheets are renamed to "Mortality****" where **** represents the year 
 //Missing values indicated as : were removed manually from spreadsheets 2011 and 2014
 
 **************************************2010**************************************
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2010.xls", sheet("Weekly Figures 2010") cellrange(A5:BA52) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2010Mortality.xls", sheet("Weekly Figures 2010") cellrange(A5:BA52) firstrow case(lower) allstring
 
 //Change from string to numeric 
 destring b-ba, replace
@@ -35,7 +36,7 @@ save 2010data.dta, replace
 **************************************2011**************************************
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2011.xls", sheet("Weekly Figures 2011") cellrange(A4:BA53) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2011Mortality.xls", sheet("Weekly Figures 2011") cellrange(A4:BA53) firstrow case(lower) allstring
 
 //Change from string to numeric 
 drop if _n <4
@@ -65,7 +66,7 @@ save 2011data.dta, replace
 **************************************2012**************************************
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2012.xls", sheet("Weekly Figures 2012") cellrange(A5:BA53) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2012Mortality.xls", sheet("Weekly Figures 2012") cellrange(A5:BA53) firstrow case(lower) allstring
 
 //Change from string to numeric 
 destring b-ba, replace
@@ -92,7 +93,7 @@ save 2012data.dta, replace
 **************************************2013**************************************
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2013.xls", sheet("Weekly Figures 2013") cellrange(A5:BA52) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2013Mortality.xls", sheet("Weekly Figures 2013") cellrange(A5:BA52) firstrow case(lower) allstring
 
 //Change from string to numeric 
 destring b-ba, replace
@@ -119,7 +120,7 @@ save 2013data.dta, replace
 **************************************2014**************************************
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2014.xls", sheet("Weekly Figures 2014") cellrange(A4:BA52) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2014Mortality.xls", sheet("Weekly Figures 2014") cellrange(A4:BA52) firstrow case(lower) allstring
 
 //Change from string to numeric 
 destring b-ba, replace
@@ -147,7 +148,7 @@ save 2014data.dta, replace
 **************************************2015**************************************
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2015.xls", sheet("Weekly Figures 2015") cellrange(A5:BB52) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2015Mortality.xls", sheet("Weekly Figures 2015") cellrange(A5:BB52) firstrow case(lower) allstring
 
 //Change from string to numeric 
 destring b-bb, replace
@@ -174,7 +175,7 @@ save 2015data.dta, replace
 **************************************2016**************************************
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2016.xls", sheet("Weekly figures 2016") cellrange(B5:BB52) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2016Mortality.xls", sheet("Weekly figures 2016") cellrange(B5:BB52) firstrow case(lower) allstring
 
 //Change from string to numeric 
 destring b-bb, replace
@@ -201,7 +202,7 @@ save 2016data.dta, replace
 **************************************2017**************************************
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2017.xls", sheet("Weekly figures 2017") cellrange(B5:BB52) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2017Mortality.xls", sheet("Weekly figures 2017") cellrange(B5:BB52) firstrow case(lower) allstring
 
 //Change from string to numeric 
 destring b-bb, replace
@@ -228,7 +229,7 @@ save 2017data.dta, replace
 **************************************2018**************************************
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2018.xls", sheet("Weekly figures 2018") cellrange(B5:BB52) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2018Mortality.xls", sheet("Weekly figures 2018") cellrange(B5:BB52) firstrow case(lower) allstring
 
 //Change from string to numeric 
 destring b-bb, replace
@@ -255,7 +256,7 @@ save 2018data.dta, replace
 **************************************2019**************************************
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2019.xls", sheet("Weekly figures 2019") cellrange(B5:BB52) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2019Mortality.xls", sheet("Weekly figures 2019") cellrange(B5:BB52) firstrow case(lower) allstring
 
 //Change from string to numeric 
 destring b-bb, replace
@@ -283,7 +284,7 @@ save 2019data.dta, replace
 //The spreadsheet for 2020 is up to week ending 10th April 2020
 clear all 
 cd "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data"
-import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\publishedweek2020.xlsx", sheet("Weekly figures 2020") cellrange(B6:BB96) firstrow case(lower) allstring
+import excel "\\pppf.org.uk\health\ODE\COVID-19\COVID19_ONS\data\original data\2020Mortality.xlsx", sheet("Weekly figures 2020") cellrange(B6:BB96) firstrow case(lower) allstring
 
 //Drop additional data 
 drop in 7
