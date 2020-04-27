@@ -35,7 +35,8 @@ The Stata code was written using Stata version 15.
 The 'src' folder contains
 
 * 0_download_data.R - Download weekly mortality data since 2010
-* 1_COVID_occurence_of_death.R - Clean and plot data on place of death
+* 1_COVID_occurence_of_death.R - Clean and save data
+* 2_deaths_by_place_of_occurence.R - plot data on place of death
 * ONS_deaths.do - clean mortality data over time
 
 
