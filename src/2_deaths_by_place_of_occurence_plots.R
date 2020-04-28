@@ -5,10 +5,10 @@ EW <- readRDS(here::here('data', 'EW_weekly_deaths.rds'))
 
 # Labels and breaks for plots
 date_breaks <- unique(EW$week_ended)
-
-ggplot(EW) + geom_col(aes(x=week_ended, y=total_deaths, fill=location)) +
+EW$location_reordered <- factor(EW$location, levels=c("Care home", "Home", "Hospital (acute or community, not psychiatric)", "Hospice", "Other communal establishment", "Elsewhere"))
+ggplot(EW) + geom_col(aes(x=week_ended, y=total_deaths, fill=location_reordered)) +
   scale_x_date(breaks=date_breaks, date_labels = "%d %b %Y") +
-  scale_y_continuous(labels = scales::comma, limit=c(0,NA)) + 
+  scale_y_continuous(labels = scales::comma, limit=c(0,25000)) + 
   scale_fill_THF(breaks=legend_breaks, label=legend_labels, 
                  guide_legend(nrow=1, ncol=)) +
   theme_THF() +
@@ -24,7 +24,7 @@ ggplot(EW) + geom_col(aes(x=week_ended, y=total_deaths, fill=location)) +
       title = 'Weekly deaths from any cause by place of death in England and Wales',
        y='', x='')
 
-ggsave(here::here('output', 'deaths_by_place_of_occurence_bar_chart.pdf'))
+ggsave(here::here('output', 'weekly_deaths_by_place_of_occurence_bar_chart_reorded.pdf'))
 
 # line plot
 ggplot(EW) + 
