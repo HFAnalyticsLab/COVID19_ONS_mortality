@@ -1,8 +1,17 @@
+# Download daily deaths data to recreate ONS chart
+download.file(
+  "https://www.ons.gov.uk/generator?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregisteredweeklyinenglandandwalesprovisional/weekending17april2020/cd850266&format=csv",  destfile = here::here('data','original data', "2020Mortality.xlsx"),
+  destfile = here::here('data','original data', "Figure_7_The_number_of_COVID_19_deaths_in_care_homes_continues_to_increase.csv"),
+  mode = "wb")
+
+
+
 # 2020 - URL needs to be updated weekly
 download.file(
   "https://www.ons.gov.uk/file?uri=%2fpeoplepopulationandcommunity%2fbirthsdeathsandmarriages%2fdeaths%2fdatasets%2fweeklyprovisionalfiguresondeathsregisteredinenglandandwales%2f2020/publishedweek1620201.xlsx",
   destfile = here::here('data','original data', "2020Mortality.xlsx"),
   mode = "wb")
+
 
 # 2019
 download.file(
