@@ -51,15 +51,10 @@ ggplot(EW) +
 
 ggsave(here::here('output', 'deaths_by_place_of_occurence.pdf'))
 
-# Save wide data
-EW_wide <- EW %>% 
-  select( week_ended, location, proportion_0_base) %>% 
-  pivot_wider(id_cols = location, names_from = week_ended, values_from = proportion_0_base)
-write_csv(EW_wide, here::here('data', 'England_Wales_place_of_death.csv') )
 
-# 
-EW$location_4groups <- factor(EW$location_4groups, levels=c("Care home", "Home", "Hospital (acute or community, not psychiatric)", "Other*"))
 # line plot with fewer categories
+EW$location_4groups <- factor(EW$location_4groups, levels=c("Care home", "Home", "Hospital (acute or community, not psychiatric)", "Other*"))
+
 ggplot(EW) + 
   geom_line(aes(x=week_ended, y=proportion_0_base_4groups, colour=location_4groups, group=location_4groups)) + 
   geom_point(aes(x=week_ended, y=proportion_0_base_4groups, colour=location_4groups), size=2, fill='white') +
