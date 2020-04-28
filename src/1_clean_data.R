@@ -6,6 +6,8 @@ library(janitor)
 daily_place_of_death <- read_csv(here::here('data','original data', 
                                       "Figure_7__The_number_of_COVID-19_deaths_in_care_homes_continues_to_increase.csv"),
                            skip=6)
+
+write_csv(daily_place_of_death, here::here('data', 'daily_place_of_death.csv'))
 # reshape data so it is long
 df_long <- pivot_longer(daily_place_of_death, -Date, names_to = 'location', 
                         values_to='deaths') %>% 
@@ -70,5 +72,17 @@ EW <- ONS %>%
 
 
 saveRDS(EW, here::here('data', 'EW_weekly_deaths.rds'))
+
+# Save wide data
+EW_wide <- EW %>% 
+  select( week_ended, location, proportion_0_base) %>% 
+  pivot_wider(id_cols = location, names_from = week_ended, values_from = proportion_0_base)
+write_csv(EW_wide, here::here('data', 'England_Wales_place_of_death.csv') )
+
+# Save wide data 4 groups
+EW_wide_4groups <- EW %>% 
+  select( week_ended, location_4groups, proportion_0_base_4groups) %>% 
+  pivot_wider(id_cols = location_4groups, names_from = week_ended, values_from = proportion_0_base_4groups)
+write_csv(EW_wide_4groups, here::here('data', 'England_Wales_place_of_death_4groups.csv') )
 
 
