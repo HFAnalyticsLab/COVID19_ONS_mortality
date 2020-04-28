@@ -67,8 +67,7 @@ EW <- ONS %>%
   group_by(location_4groups) %>% 
   fill(firstweek_4groups) %>% 
   ungroup() %>% 
-  mutate(proportion_0_base_4groups=total_deaths/firstweek_4groups*100-100) %>% 
-  distinct(week_ended, location_4groups, .keep_all = TRUE)
+  mutate(proportion_0_base_4groups=total_deaths/firstweek_4groups*100-100) 
 
 
 saveRDS(EW, here::here('data', 'EW_weekly_deaths.rds'))
@@ -81,6 +80,7 @@ write_csv(EW_wide, here::here('data', 'England_Wales_place_of_death.csv') )
 
 # Save wide data 4 groups
 EW_wide_4groups <- EW %>% 
+  distinct(week_ended, location_4groups, .keep_all = TRUE) %>% 
   select( week_ended, location_4groups, proportion_0_base_4groups) %>% 
   pivot_wider(id_cols = location_4groups, names_from = week_ended, values_from = proportion_0_base_4groups)
 write_csv(EW_wide_4groups, here::here('data', 'England_Wales_place_of_death_4groups.csv') )
