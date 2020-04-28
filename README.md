@@ -37,6 +37,7 @@ The 'src' folder contains
 * 0_download_data.R - Download weekly mortality data since 2010
 * 1_COVID_occurence_of_death.R - Clean and save data
 * 2_deaths_by_place_of_occurence.R - plot data on place of death
+* 3_daily_deaths_plot.R - plot daily deaths 
 * ONS_deaths.do - clean mortality data over time
 
 
