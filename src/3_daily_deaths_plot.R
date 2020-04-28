@@ -27,4 +27,4 @@ ggplot(df_long) + geom_col(aes(x=date, y=deaths, fill=location)) +
        subtitle = 'Number of deaths by actual date of death registered up to 25 April in England and Wales' ,
        y='', x='')
 
-ggsave(here::here('output', 'daily_deaths_by_place_of_occurence_bar_4groups.pdf'))
+ggsave(here::here('output', 'daily_deaths_by_place_of_occurence_bar_4groups.png'))

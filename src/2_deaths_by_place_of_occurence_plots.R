@@ -24,7 +24,7 @@ ggplot(EW) + geom_col(aes(x=week_ended, y=total_deaths, fill=location_reordered)
       title = 'Weekly deaths from any cause by place of death in England and Wales',
        y='', x='')
 
-ggsave(here::here('output', 'weekly_deaths_by_place_of_occurence_bar_chart_reorded.pdf'))
+ggsave(here::here('output', 'weekly_deaths_by_place_of_occurence_bar_chart_reorded.png'))
 
 # line plot
 ggplot(EW) + 
@@ -49,13 +49,14 @@ ggplot(EW) +
        y='Percentage change', x='')
 
 
-ggsave(here::here('output', 'deaths_by_place_of_occurence.pdf'))
+ggsave(here::here('output', 'deaths_by_place_of_occurence.png'))
 
 
 # line plot with fewer categories
 EW$location_4groups <- factor(EW$location_4groups, levels=c("Care home", "Home", "Hospital (acute or community, not psychiatric)", "Other*"))
-
-ggplot(EW) + 
+EW %>%  
+  distinct(week_ended, location_4groups, .keep_all = TRUE) %>% 
+ggplot(.) + 
   geom_line(aes(x=week_ended, y=proportion_0_base_4groups, colour=location_4groups, group=location_4groups)) + 
   geom_point(aes(x=week_ended, y=proportion_0_base_4groups, colour=location_4groups), size=2, fill='white') +
   geom_point(aes(x=week_ended, y=proportion_0_base_4groups), color='white', size=1) + 
@@ -78,4 +79,4 @@ ggplot(EW) +
        y='Percentage change', x='')
 
 
-ggsave(here::here('output', 'deaths_by_place_of_occurence_4groups.pdf'))
+ggsave(here::here('output', 'deaths_by_place_of_occurence_4groups.png'))
