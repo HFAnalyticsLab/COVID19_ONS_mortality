@@ -12,16 +12,19 @@ ggplot(df_long) + geom_col(aes(x=date, y=deaths, fill=location)) +
   theme_THF() +
   theme(plot.title = element_text(size=11, hjust = 0), 
         plot.title.position='plot',
-        legend.position = c(0.1, 1),
+        legend.position = c(0.1, 0.85),
         plot.caption = element_text(face = 'plain'),
+        legend.key.size = unit(1, 'lines'),
         legend.margin = margin(b = 10, l = -10, unit = 'mm'),
         legend.justification = c("left", "top"),
+        legend.background = element_rect(fill=NA),
         axis.title.y = element_text(face = 'plain', size=8),
         axis.text.x = element_text(angle = 0, vjust = 1, hjust = 0.5, face = 'plain'),
         axis.text.y = element_text(angle = 0, vjust = 0, hjust = 0, face = 'plain'),
         plot.subtitle = element_text(size = 8)) + 
-  labs(caption='Source: ONS \n*hospice, other communal establishment, elsewhere', 
-       title = 'Deaths from any cause by place of death in England and Wales',
+        labs(caption='Source: ONS, recreated from figure 7 https://bit.ly/2y69vJ6 \n*hospice, other communal establishment, elsewhere', 
+       title='Biggest weekly increase in number of COVID-19 deaths in care homes',
+       subtitle = 'Number of deaths by actual date of death registered up to 25 April in England and Wales' ,
        y='', x='')
 
 ggsave(here::here('output', 'daily_deaths_by_place_of_occurence_bar_4groups.pdf'))
