@@ -1,6 +1,6 @@
 # ONS mortality
 
-#### Project Status: [In progess]
+#### Project Status: [In progress]
 
 ## Project Description
 
