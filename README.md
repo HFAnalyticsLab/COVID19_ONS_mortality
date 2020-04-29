@@ -18,12 +18,11 @@ This project uses publically available data that can be downloaded from the [ONS
 The R code provided downloads the data you need and cleans it. We have used the groupings provided by the ONS, summarised below.   
 
 - Care homes includes homes for the chronic sick; nursing homes; homes for people with mental health problems and non-NHS multi function sites.
-- Elsewhere includes all places not covered above such as deaths on a motorway; at the beach; climbing a mountain; walking down the street; at the cinema; at a football match; while out shopping; or in someone else's home. This category also includes people who are pronounced dead on arrival at hospital.
 - Deaths at home are those at the usual residence of the deceased (according to the informant)‚ where this is not a communal establishment.
 - Hospices include Sue Ryder Homes; Marie Curie Centres; oncology centres; voluntary hospice units; and palliative care centres.
 - Hospital includes acute or community, not psychiatric.
 - Other communal establishments include schools for people with learning disabilities; holiday homes and hotels; common lodging houses; aged persons’ accommodation; assessment centres; schools; convents and monasteries; nurses’ homes; university and college halls of residence; young offender institutions; secure training centres; detention centres; prisons and remand homes.
- 
+- Elsewhere includes all places not covered above such as deaths on a motorway; at the beach; climbing a mountain; walking down the street; at the cinema; at a football match; while out shopping; or in someone else's home. This category also includes people who are pronounced dead on arrival at hospital.
 
 The do file was written with Stata version 15. To run the whole code successfully, it is necessary to download and save all of the spreadsheets from 2010 to 2020. This can be done manually or using the R code provided. Running the code cleans and appends all of the data from the tabs called “Weekly figures 20**”. The final result should include a new dataset for all years with the following variables: all deaths; 5-years average of all deaths; respiratory disease deaths; COVID-19 deaths; deaths by age groups and gender; deaths by government office regions.  
 
