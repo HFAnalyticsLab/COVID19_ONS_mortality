@@ -14,7 +14,8 @@ ggplot(EW) + geom_col(aes(x=week_ended, y=total_deaths, fill=location_reordered)
   theme_THF() +
   theme(plot.title = element_text(size=11, hjust = 0), 
         plot.title.position='plot',
-        legend.margin = margin(b = 10, l = -10, unit = 'mm'),
+        legend.margin = margin(b = 1, l = -10, unit = 'mm'),
+        legend.key.size = unit(1, 'lines'),
         legend.justification = c("left", "top"),
         axis.title.y = element_text(face = 'plain', size=8),
         axis.text.x = element_text(angle = 0, vjust = 1, hjust = 0.5, face = 'plain'),
@@ -37,14 +38,15 @@ ggplot(EW) +
   theme_THF() +
   theme(plot.title = element_text(size=11, hjust = 0), 
         plot.title.position='plot',
-        legend.margin = margin(b = 10, l = -10, unit = 'mm'),
+        legend.margin = margin(b = 1, l = -10, unit = 'mm'),
         legend.justification = c("right", "top"),
+        legend.key.size = unit(1, 'lines'),
         axis.title.y = element_text(face = 'plain', size=8),
         axis.text.x = element_text(angle = 0, vjust = 1, hjust = 0.5, face = 'plain'),
         axis.text.y = element_text(angle = 0, vjust = 0, hjust = 0, face = 'plain'),
         plot.subtitle = element_text(size = 8)) + 
   labs(caption='Source: ONS', 
-       title = 'Deaths from any cause in care homes have increased by 196% since \nthe start of the COVID-19 outbreak',
+       title = 'Deaths from any cause in care homes have increased by 220% since \nthe start of the COVID-19 outbreak',
        subtitle = 'Percentage change in deaths from any cause by place of death in England and Wales, \nrelative to the week of 13 March 2020',
        y='Percentage change', x='')
 
@@ -67,14 +69,16 @@ ggplot(.) +
   theme(plot.title = element_text(size=11, hjust = 0), 
         plot.title.position='plot',
         plot.caption = element_text(face = 'plain'),
-        legend.margin = margin(b = 10, l = -10, unit = 'mm'),
-        legend.justification = c("right", "top"),
+        legend.position = c('top'),
+        legend.margin = margin(b = 1, l = -10, unit = 'mm'),
+        legend.key.size = unit(1, 'lines'),
+        legend.justification = c("left", "top"),
         axis.title.y = element_text(face = 'plain', size=8),
         axis.text.x = element_text(angle = 0, vjust = 1, hjust = 0.5, face = 'plain'),
         axis.text.y = element_text(angle = 0, vjust = 0, hjust = 0, face = 'plain'),
         plot.subtitle = element_text(size = 8)) + 
   labs(caption='Source: ONS \n*hospice, other communal establishment, elsewhere', 
-       title = 'Deaths from any cause in care homes have increased by 196% since \nthe start of the COVID-19 outbreak',
+       title = 'Deaths from any cause in care homes have increased by 220% since \nthe start of the COVID-19 outbreak',
        subtitle = 'Percentage change in deaths from any cause by place of death in England and Wales, \nrelative to the week of 13 March 2020',
        y='Percentage change', x='')
 
