@@ -1,19 +1,28 @@
 # ONS mortality
 
-#### Project Status: [In progess]
+#### Project Status: [In progress]
 
 ## Project Description
 
-A descriptive analysis of trends in mortality using data from the Office for National Statistics. The R code can be used to recreate the analysis described in [COVID-19 chart series](https://www.health.org.uk/news-and-comment/charts-and-infographics/deaths-from-any-cause-in-care-homes-have-increased-by-99-per-cent) and the Stata code can be used to recreate the analysis in our [COVID-19 chart series](https://www.health.org.uk/news-and-comment/charts-and-infographics/weekly-deaths-are-significantly-higher-than-in-the-same-period) analysis showing excess mortality.
+A descriptive analysis of trends in mortality using data from the Office for National Statistics (ONS). The R code can be used to recreate the analysis described in [COVID-19 chart series](https://www.health.org.uk/news-and-comment/charts-and-infographics/deaths-from-any-cause-in-care-homes-have-increased-by-99-per-cent) and the Stata code can be used to recreate the analysis in our [COVID-19 chart series](https://www.health.org.uk/news-and-comment/charts-and-infographics/weekly-deaths-are-significantly-higher-than-in-the-same-period) analysis showing excess mortality.
+
 
 ## Data source
 
 This project uses publically available data that can be downloaded from the [ONS website](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales). The data were released with an [Open Government Licence](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). 
 
 
+
 ## How does it work?
 
-The R code provided downloads the data you need and cleans it.
+The R code provided downloads the data you need and cleans it. We have used the groupings provided by the ONS, summarised below.   
+
+- Care homes includes homes for the chronic sick; nursing homes; homes for people with mental health problems and non-NHS multi function sites.
+- Deaths at home are those at the usual residence of the deceased (according to the informant)‚ where this is not a communal establishment.
+- Hospices include Sue Ryder Homes; Marie Curie Centres; oncology centres; voluntary hospice units; and palliative care centres.
+- Hospital includes acute or community, not psychiatric.
+- Other communal establishments include schools for people with learning disabilities; holiday homes and hotels; common lodging houses; aged persons’ accommodation; assessment centres; schools; convents and monasteries; nurses’ homes; university and college halls of residence; young offender institutions; secure training centres; detention centres; prisons and remand homes.
+- Elsewhere includes all places not covered above such as deaths on a motorway; at the beach; climbing a mountain; walking down the street; at the cinema; at a football match; while out shopping; or in someone else's home. This category also includes people who are pronounced dead on arrival at hospital.
 
 The do file was written with Stata version 15. To run the whole code successfully, it is necessary to download and save all of the spreadsheets from 2010 to 2020. This can be done manually or using the R code provided. Running the code cleans and appends all of the data from the tabs called “Weekly figures 20**”. The final result should include a new dataset for all years with the following variables: all deaths; 5-years average of all deaths; respiratory disease deaths; COVID-19 deaths; deaths by age groups and gender; deaths by government office regions.  
 
@@ -39,6 +48,8 @@ The 'src' folder contains
 * 2_deaths_by_place_of_occurence.R - plot data on place of death
 * 3_daily_deaths_plot.R - plot daily deaths 
 * ONS_deaths.do - clean mortality data over time
+
+
 
 
 ## Authors
