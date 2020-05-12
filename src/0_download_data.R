@@ -2,9 +2,10 @@ library(curl)
 library(rvest)  
 library(polite)
 
+
 # Download daily deaths data to recreate ONS chart
 download.file(
-  "https://www.ons.gov.uk/generator?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregisteredweeklyinenglandandwalesprovisional/weekending24april2020/5db9eecb&format=csv",
+  'https://www.ons.gov.uk/generator?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregisteredweeklyinenglandandwalesprovisional/weekending1may2020/b1502a6b&format=csv',
   destfile = here::here('data','original data', "Figure_7_The_number_of_COVID_19_deaths_in_care_homes_continues_to_increase.csv"),
   mode = "wb")
 
@@ -20,11 +21,10 @@ links <- page %>% html_nodes(css=".btn--thick") %>% html_attr('href')
 
 file_names <- fs::path_file(links)
 
-link_2020 <- links[str_detect(links, '2020.')]
+link_2020 <- links[stringr::str_detect(links, '2020.')]
 
 destfile_ONS <- here::here('data', 'original data', "2020Mortality.xlsx")
 curl_download(paste0('https://www.ons.gov.uk/', link_2020), destfile = destfile_ONS)
-
 
 
 # 2019
