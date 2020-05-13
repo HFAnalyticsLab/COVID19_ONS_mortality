@@ -9,7 +9,15 @@ download.file(
   destfile = here::here('data','original data', "Figure_7_The_number_of_COVID_19_deaths_in_care_homes_continues_to_increase.csv"),
   mode = "wb")
 
+download.file(
+"https://www.ons.gov.uk/visualisations/dvc814/chart5/datadownload.xlsx",
+    destfile = here::here('data','original data', "Figure_5.xlsx"),
+  mode = "wb")
 
+download.file(
+  "https://www.ons.gov.uk/visualisations/dvc814/chart6/datadownload.xlsx",
+  destfile = here::here('data','original data', "Figure_6.xlsx"),
+  mode = "wb")
 
 # 2020 - URL scraped from website
 # COVID----
