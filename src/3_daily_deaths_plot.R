@@ -1,11 +1,11 @@
 library(tidyverse)
-
+library(glue)
 df_long <- readRDS( here::here('data', 'EW_daily_deaths.rds'))
-
+max_date <-max(df_long$date) %>%  format('%d %B')
 
 # Plot
 ggplot(df_long) + geom_col(aes(x=date, y=deaths, fill=location)) +
-  scale_x_date(date_breaks = "1 week", date_labels = "%d %b %Y") +
+  scale_x_date(date_breaks = "2 week", date_labels = "%d %b %Y") +
   scale_y_continuous(labels = scales::comma, limit=c(0,NA)) + 
   scale_fill_THF(breaks=legend_breaks, label=legend_labels, 
                  guide_legend(nrow=1, ncol=)) +
@@ -22,9 +22,9 @@ ggplot(df_long) + geom_col(aes(x=date, y=deaths, fill=location)) +
         axis.text.x = element_text(angle = 0, vjust = 1, hjust = 0.5, face = 'plain'),
         axis.text.y = element_text(angle = 0, vjust = 0, hjust = 0, face = 'plain'),
         plot.subtitle = element_text(size = 8)) + 
-        labs(caption='Source: ONS, recreated from figure 7 https://bit.ly/2y69vJ6 \n*hospice, other communal establishment, elsewhere', 
-       title='Sustained weekly increase in number of COVID-19 deaths in care homes',
-       subtitle = 'Number of deaths by actual date of death registered up to 2 May in England and Wales' ,
+        labs(caption='Source: ONS, recreated from figure 8 https://bit.ly/2y69vJ6 \n*hospice, other communal establishment, elsewhere', 
+       title='Sustained high weekly number of COVID-19 deaths in care homes',
+       subtitle = glue('Number of deaths by actual date of death registered up to {max_date} in England and Wales') ,
        y='', x='')
 
 ggsave(here::here('output', 'daily_deaths_by_place_of_occurence_bar_4groups.png'))
