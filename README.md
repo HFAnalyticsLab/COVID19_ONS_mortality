@@ -34,7 +34,9 @@ The R scripts were written under R version 3.6.3 (2020-02-29) -- "Holding the wi
 The following R packages (available on CRAN) are needed: 
 * [**tidyverse**](https://www.tidyverse.org/) (1.3.0)
 * [**here**](https://cran.r-project.org/web/packages/here/index.html) (0.1)
+* [**glue**](https://cran.r-project.org/web/packages/glue/index.html) (1.4.0)
 * **THFstyle** internal package
+
 Functions from internal package, theme_THF() and scale_XXX_THF() can be removed or be replaced with eg theme_minimal().
 
 The Stata code was written using Stata version 15. 
@@ -47,8 +49,8 @@ The 'src' folder contains
 * 1_COVID_occurence_of_death.R - Clean and save data
 * 2_deaths_by_place_of_occurence.R - plot data on place of death
 * 3_daily_deaths_plot.R - plot daily deaths 
+* 4_occupations_plot.R - plot death rates by occupation 
 * ONS_deaths.do - clean mortality data over time
-
 
 
 
