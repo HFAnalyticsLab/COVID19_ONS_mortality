@@ -4,7 +4,7 @@ library(janitor)
 
 # Daily place of death
 daily_place_of_death <- read_csv(here::here('data','original data', 
-                                      "Figure_7__The_number_of_COVID-19_deaths_in_care_homes_continues_to_increase.csv"),
+                                            "Figure_7_The_number_of_COVID_19_deaths_in_care_homes_continues_to_increase.csv"),
                            skip=6)
 
 write_csv(daily_place_of_death, here::here('data', 'daily_place_of_death.csv'))
@@ -78,11 +78,56 @@ EW_wide <- EW %>%
   pivot_wider(id_cols = location, names_from = week_ended, values_from = proportion_0_base)
 write_csv(EW_wide, here::here('data', 'England_Wales_place_of_death.csv') )
 
+
+
 # Save wide data 4 groups
 EW_wide_4groups <- EW %>% 
   distinct(week_ended, location_4groups, .keep_all = TRUE) %>% 
   select( week_ended, location_4groups, proportion_0_base_4groups) %>% 
   pivot_wider(id_cols = location_4groups, names_from = week_ended, values_from = proportion_0_base_4groups)
 write_csv(EW_wide_4groups, here::here('data', 'England_Wales_place_of_death_4groups.csv') )
+
+EW_wide_absolute_numbers <- EW %>% 
+  distinct(week_ended, location_4groups, .keep_all = TRUE) %>% 
+  select( week_ended, location_4groups, total_deaths) %>% 
+  pivot_wider(id_cols = location_4groups, names_from = week_ended, values_from = total_deaths)
+write_csv(EW_wide_absolute_numbers, here::here('data', 'England_Wales_place_of_death_absolute_numbers_4groups.csv') )
+
+
+## last  weeks data
+
+EW %>% group_by(location) %>%  
+  mutate(total_period=sum(total_deaths), total_period_C19=sum(covid_19_deaths)) %>% 
+  filter(week_number==max(week_number)) %>% 
+  select(week_ended, location, total_deaths, covid_19_deaths, total_period, total_period_C19) %>% 
+  write_csv(here::here('data', 'England_Wales_latest_weekly.csv') )
+
+
+### deaths by occupation - social and health care workers
+
+men <- read_excel("Data/Original data/Figure_5.xlsx", 
+                  col_types = c("skip", "text", "numeric", 
+                                "numeric", "numeric"), skip = 2) %>% 
+  janitor::remove_empty('rows') %>% 
+  clean_names() %>% 
+  mutate(sex='Men') %>% 
+  rename(occupations='occupation_group')
+
+women <- read_excel("Data/Original data/Figure_6.xlsx", 
+                    col_types = c("skip", "text", "numeric", 
+                                  "numeric", "numeric"), skip = 2) %>% 
+  janitor::remove_empty('rows') %>% 
+  clean_names() %>% 
+  mutate(sex='Women')
+
+all <- bind_rows(men, women) %>% 
+  mutate(occupations=case_when(occupations=='All men aged 20 to 64 years' ~ 'All occupations', 
+                               occupations=='All women aged 20 to 64 years' ~ 'All occupations', 
+                               TRUE ~ occupations)) 
+
+
+write_csv(all, here::here('data', 'social_care_death_rates.csv'))
+
+saveRDS(all, here::here('data', 'social_care_death_rates.rds'))
 
 
