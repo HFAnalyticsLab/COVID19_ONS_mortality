@@ -90,11 +90,13 @@ ggsave(here::here('output', 'deaths_by_place_of_occurence_4groups.png'))
 # line plot with fewer categories and absolute numbers ---
 EW$location_4groups <- factor(EW$location_4groups, levels=c("Care home", "Home", "Hospital (acute or community, not psychiatric)", "Other*"))
 EW %>%  
+  group_by(week_ended, location_4groups) %>% 
+  mutate(total_deaths_4g=sum(total_deaths)) %>% 
   distinct(week_ended, location_4groups, .keep_all = TRUE) %>% 
   ggplot(.) + 
-  geom_line(aes(x=week_ended, y=total_deaths, colour=location_4groups, group=location_4groups)) + 
-  geom_point(aes(x=week_ended, y=total_deaths, colour=location_4groups), size=2, fill='white') +
-  geom_point(aes(x=week_ended, y=total_deaths), color='white', size=1) + 
+  geom_line(aes(x=week_ended, y=total_deaths_4g, colour=location_4groups, group=location_4groups)) + 
+  geom_point(aes(x=week_ended, y=total_deaths_4g, colour=location_4groups), size=2, fill='white') +
+  geom_point(aes(x=week_ended, y=total_deaths_4g), color='white', size=1) + 
   scale_x_date(breaks=date_breaks, date_labels = "%d %b %Y") +
   scale_y_continuous(labels = scales::comma, limits = c(-60,NA)) + 
   scale_colour_THF(breaks=legend_breaks, label=legend_labels) +

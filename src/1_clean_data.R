@@ -52,7 +52,10 @@ ONS <- place_of_death %>%
                              "Care home" = "care_home",
                              "Other communal establishment" = "other_communal_establishment",
                              "Elsewhere" = "elsewhere"), 
-)
+) %>% 
+  group_by(week_ended, location_4groups, country) %>% 
+  mutate(total_deaths_4g=sum(total_deaths)) %>% 
+  ungroup()
 
 
 EW <- ONS %>% 
@@ -63,11 +66,11 @@ EW <- ONS %>%
   ungroup() %>% 
   mutate(proportion_0_base=total_deaths/firstweek*100-100) %>% 
   group_by(location_4groups) %>% 
-  mutate(firstweek_4groups=ifelse(week_number==11, total_deaths, NA)) %>% 
+  mutate(firstweek_4groups=ifelse(week_number==11, total_deaths_4g, NA)) %>% 
   group_by(location_4groups) %>% 
   fill(firstweek_4groups) %>% 
   ungroup() %>% 
-  mutate(proportion_0_base_4groups=total_deaths/firstweek_4groups*100-100) 
+  mutate(proportion_0_base_4groups=total_deaths_4g/firstweek_4groups*100-100) 
 
 
 saveRDS(EW, here::here('data', 'EW_weekly_deaths.rds'))
@@ -89,8 +92,8 @@ write_csv(EW_wide_4groups, here::here('data', 'England_Wales_place_of_death_4gro
 
 EW_wide_absolute_numbers <- EW %>% 
   distinct(week_ended, location_4groups, .keep_all = TRUE) %>% 
-  select( week_ended, location_4groups, total_deaths) %>% 
-  pivot_wider(id_cols = location_4groups, names_from = week_ended, values_from = total_deaths)
+  select( week_ended, location_4groups, total_deaths_4g) %>% 
+  pivot_wider(id_cols = location_4groups, names_from = week_ended, values_from = total_deaths_4g)
 write_csv(EW_wide_absolute_numbers, here::here('data', 'England_Wales_place_of_death_absolute_numbers_4groups.csv') )
 
 
