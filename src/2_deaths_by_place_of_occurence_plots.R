@@ -47,7 +47,7 @@ ggplot(EW) +
         axis.text.y = element_text(angle = 0, vjust = 0, hjust = 0, face = 'plain'),
         plot.subtitle = element_text(size = 8)) + 
   labs(caption='Source: ONS', 
-       title = 'Deaths from any cause in care homes have increased by 159% since \nthe start of the COVID-19 outbreak',
+       title = 'Deaths from any cause in care homes since the start of the COVID-19 outbreak',
        subtitle = 'Percentage change in deaths from any cause by place of death in England and Wales, \nrelative to the week of 13 March 2020',
        y='Percentage change', x='')
 
@@ -79,7 +79,7 @@ ggplot(.) +
         axis.text.y = element_text(angle = 0, vjust = 0, hjust = 0, face = 'plain'),
         plot.subtitle = element_text(size = 8)) + 
   labs(caption='Source: ONS \n*hospice, other communal establishment, elsewhere', 
-       title = 'Deaths from any cause in care homes have increased by 159% since \nthe start of the COVID-19 outbreak',
+       title = 'Deaths from any cause in care homes since \nthe start of the COVID-19 outbreak',
        subtitle = 'Percentage change in deaths from any cause by place of death in England and Wales, \nrelative to the week of 13 March 2020',
        y='Percentage change', x='')
 
@@ -113,7 +113,7 @@ EW %>%
         axis.text.y = element_text(angle = 0, vjust = 0, hjust = 0, face = 'plain'),
         plot.subtitle = element_text(size = 8)) + 
   labs(caption='Source: ONS \n*hospice, other communal establishment, elsewhere', 
-       title = 'Deaths from any cause in care homes are higher \nthan deaths in hospital',
+       title = 'Deaths from any cause in hospitals are lower than at the start of the COVID-19 outbreak',
        y='', x='')
 
 
