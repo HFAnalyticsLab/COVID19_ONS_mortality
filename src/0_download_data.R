@@ -5,7 +5,7 @@ library(polite)
 
 # Download daily deaths data to recreate ONS chart
 download.file(
-  'https://www.ons.gov.uk/generator?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregisteredweeklyinenglandandwalesprovisional/weekending1may2020/b1502a6b&format=csv',
+  'https://www.ons.gov.uk/generator?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregisteredweeklyinenglandandwalesprovisional/weekending8may2020/8df558f7&format=csv',
   destfile = here::here('data','original data', "Figure_7_The_number_of_COVID_19_deaths_in_care_homes_continues_to_increase.csv"),
   mode = "wb")
 
